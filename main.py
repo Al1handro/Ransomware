@@ -4,6 +4,7 @@ import sms
 import sys
 from ui1 import Ui_Form, Ui_installer
 from PyQt5.QtWidgets import QMainWindow, QApplication
+from pathlib import Path
 key = None
 
 
@@ -16,7 +17,8 @@ class TaskApp2(QMainWindow, Ui_Form):
 
     def Push1(self):
         global key
-        directory = r"C:\Users\PC\Downloads\Telegram Desktop\test"
+        home = Path.home()
+        directory = home / "TEST"
         files = os.listdir(directory)
         with open("crypto.key", "w") as fil:
             fil.write(self.lineEdit.text())
@@ -40,7 +42,8 @@ class TaskApp1(QMainWindow, Ui_installer):
 
     def Push(self):
         global key
-        directory = r"C:\Users\PC\Downloads\Telegram Desktop\test"
+        home = Path.home()
+        directory = home / "TEST"
         files = os.listdir(directory)
         write_key()
         with open("crypto.key") as fil:
